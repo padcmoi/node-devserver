@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sudo chown -R $(whoami):$(whoami) ../app
+
+sudo docker exec -it node-devserver sh -c "echo \"Node version: $(node -v)\" && nodemon ${@}"

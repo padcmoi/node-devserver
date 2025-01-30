@@ -1,0 +1,13 @@
+services:
+  app:
+    container_name: node-devserver
+    build:
+      context: .
+      args:
+        NODE_VERSION: ${NODE_VERSION-current}
+    env_file: .env
+    ports:
+      - "${HOST_PORT-3000}:${CONTAINER_PORT-3000}"
+    volumes:
+      - ../app:/app
+

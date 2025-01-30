@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sudo chown -R $(whoami):$(whoami) ../app
+
+commands=sh
+
+[ $# -gt 0 ] && commands="$@"
+
+sudo docker exec -it node-devserver sh -c "${commands}"
