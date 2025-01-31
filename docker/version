@@ -4,8 +4,6 @@
 
 sudo chown -R $(whoami):$(whoami) ./app
 
-commands=sh
+VERSION=${1:-20}
 
-[ $# -gt 0 ] && commands="$@"
-
-sudo docker exec -it node-devserver sh -c "${commands}"
+sed -i "s/^NODE_VERSION=.*/NODE_VERSION=$VERSION/" docker/.env

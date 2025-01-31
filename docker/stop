@@ -4,8 +4,5 @@
 
 sudo chown -R $(whoami):$(whoami) ./app
 
-commands=sh
-
-[ $# -gt 0 ] && commands="$@"
-
-sudo docker exec -it node-devserver sh -c "${commands}"
+sudo docker compose -p node_dev_server -f docker/compose.yml stop
+sudo docker compose -p node_dev_server -f docker/compose.yml rm -f
